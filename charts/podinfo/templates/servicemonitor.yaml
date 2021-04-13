@@ -10,7 +10,10 @@ spec:
     - path: /metrics
       port: http
       interval: {{ .Values.serviceMonitor.interval }}
+  namespaceSelector:
+    matchNames:
+      - {{ .Release.Namespace }}
   selector:
     matchLabels:
-      app: {{ template "podinfo.fullname" . }}
+      {{- include "podinfo.selectorLabels" . | nindent 6 }}
 {{- end }}
