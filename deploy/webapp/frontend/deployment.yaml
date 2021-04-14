@@ -5,6 +5,7 @@ metadata:
   namespace: webapp
 spec:
   replicas: 3
+  minReadySeconds: 3
   revisionHistoryLimit: 5
   progressDeadlineSeconds: 60
   strategy:
